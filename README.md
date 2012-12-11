@@ -14,6 +14,6 @@ I have dedicated all of the files in this repo to the public domain via the Crea
 
 ## Authors
 
-I wrote Nikki by myself primarily for myself, but I hope that others will find them useful.
+I wrote Nikki by myself primarily for myself, but I hope that others will find it useful.
 
 -- Joodan Van (伴上段), 2012年11月22日
