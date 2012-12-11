@@ -1,0 +1,37 @@
+# The Nikki Minimalistic Site Generator Configuration File
+# Written in 2012 by 伴上段
+#
+# To the extent possible under law, the author(s) have dedicated all copyright
+# and related and neighboring rights to this software to the public domain
+# worldwide. This software is distributed without any warranty.
+#
+# You should have received a copy of the CC0 Public Domain Dedication along
+# with this software. If not, see
+# <http://creativecommons.org/publicdomain/zero/1.0/>.
+
+# the output directory
+OUTDIR=out
+
+# egrep(1) regex for selecting files to be processed by DOCPROCCOMMAND
+DOCFILTER='\.md$'
+
+# the command that will process each document (stdout generates the
+# HTML content) (the document's filename is given as an argument)
+DOCPROCCOMMAND='sundown'
+
+# sed(1) command that transforms a source document's name into its output form
+# (e.g., *.md to *.html)
+SEDFILTER='s/\.md$/.html/'
+
+# the file containing each generated document's header
+HEADER=header
+
+# the file containing each generated document's footer
+FOOTER=footer
+
+# CPLIST is a space-separated list of files that are copied (via cp -r) to the
+# output directory, whereas SYMLINKLIST is a space-separated list of files for
+# which symlinks will be generated in the output directory.
+CPLIST=""
+SYMLINKLIST=""
+

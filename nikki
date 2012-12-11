@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# The Nikki Minimalistic Site Generator
+# Written in 2012 by 伴上段
+#
+# To the extent possible under law, the author(s) have dedicated all copyright
+# and related and neighboring rights to this software to the public domain
+# worldwide. This software is distributed without any warranty.
+#
+# You should have received a copy of the CC0 Public Domain Dedication along
+# with this software. If not, see
+# <http://creativecommons.org/publicdomain/zero/1.0/>.
+
+if [ ! -f config.txt ]; then
+  echo "no config.txt in the current directory" >&2
+  exit 1
+fi
+. config.txt
+
+rm -rf $OUTDIR
+mkdir $OUTDIR
+for docname in `find . | egrep $DOCFILTER`; do
+  outfile=$OUTDIR/`echo $docname | sed $SEDFILTER`
+  mkdir -p `dirname $outfile`
+  cp $HEADER $outfile
+  $DOCPROCCOMMAND $docname >>$outfile
+  cat $FOOTER >>$outfile
+done
+for cpfile in $CPLIST; do
+  mkdir -p $OUTDIR/`dirname $cpfile`
+  cp -r $cpfile $OUTDIR/$cpfile
+done
+for slfile in $SYMLINKLIST; do
+  mkdir -p $OUTDIR/`dirname $slfile`
+  ln -s $PWD/$slfile $OUTDIR/$slfile
+done
+
